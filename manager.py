@@ -1,12 +1,11 @@
 import datetime
 import os
-import ssl
-import smtplib
 
 from ultralytics import YOLO
 
 from chart import draw_chart
 from database import writer, Disease, Growth
+from config import tomato_model_config
 
 
 class Detector:
@@ -55,15 +54,17 @@ class Analyzer:
         self.confidences = []  # gathers all confidences from the current run
         self.counts = []  # gathers all counts from current run ( for each image)
 
-    def analyze_results(self, save_path: str = None, draw_charts: bool = True):
+    def analyze_results(self, identification_name: str = None, save_path: str = None, draw_charts: bool = True):
         """
         Analyzes the detection results to compute counts and confidences for each class.
 
+        :param identification_name: (optional) it is typically used to identify the images if they are going to be saved. Usually frame index plus model purpose is a good option!
         :param save_path: (optional) Directory to save annotated images and charts. Defaults to None. If not provided
         then no file will be saved
         :param draw_charts: (optional) Whether to draw and save charts for object counts. Defaults to True.
         :return:
         """
+
         if save_path is not None:
             os.makedirs(save_path, exist_ok=True)
 
@@ -102,10 +103,14 @@ class Analyzer:
             self.counts.append(detection_counts)
 
             # Optionally draw charts and save results
+            if identification_name is None:
+                identification_name = 'unknown'
             if draw_charts:
-                draw_chart(data=detection_counts, image=name, save_path=save_path)
+                draw_chart(data=detection_counts, image=f'{identification_name}_{name}', save_path=save_path)
             if save_path is not None:
-                result.save(f'{save_path}/{name}')
+                if tomato_model_config.save_images:
+                    print(f'Saved image at {save_path}/{identification_name}_{name}')
+                    result.save(f'{save_path}/{identification_name}_{name}')
 
     def is_any_confidence_more_than(self, min_threshold):
         return any(float(value) > min_threshold for d in self.confidences for value in d.keys())
