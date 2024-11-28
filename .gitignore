@@ -1,0 +1,7 @@
+./database
+./test_inputs
+./test_results
+./venv
+./weights
+.idea
+config.ini
