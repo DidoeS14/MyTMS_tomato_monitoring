@@ -37,7 +37,7 @@ This project utilizes YOLOv11 to detect tomatoes in video files or video streams
 
 - Model weights are available in the [Releases](https://github.com/DidoeS14/tomato_monitoring/releases) section.
 - Trained on a dedicated Jetson Nano using YOLOv11 and Ultralytics frameworks.
-- Datasets used for training are in the  [References](References) section.
+- Datasets used for training are in the  References section at the end of this file.
 
 
 ## 🔧 Installation and Setup 
@@ -45,8 +45,8 @@ This project utilizes YOLOv11 to detect tomatoes in video files or video streams
 1. Clone the Repository
 
 ```bash
-  git clone <repository_url>
-  cd <repository_folder>
+  git clone https://github.com/DidoeS14/tomato_monitoring.git
+  cd tomato_monitoring
 
 ```
 
