@@ -56,7 +56,7 @@ This project utilizes YOLOv11 to detect tomatoes in video files or video streams
  ```
  3. Download Model Weights:
   - Access the pre-trained weights from the [Releases](https://github.com/DidoeS14/tomato_monitoring/releases) section.
-  - Place the downloaded weights in the `weights/` directory.
+  - Place the downloaded weights in a `weights/` directory.
 
   4. Configure Settings
   - Create the `config.ini` following the example from `config.ini.example` or check the example [here](https://github.com/DidoeS14/tomato_monitoring/blob/main/config.ini.example).
@@ -71,7 +71,7 @@ This project utilizes YOLOv11 to detect tomatoes in video files or video streams
 You can find a .sql file inside `/database` folder, which will execute the DDL statement (query) that will build all MySQL tables with their respective columns and types for you. 
 
 
-##💡 Quick Testing 
+## 💡 Quick Testing 
 
 In case you want to test the system quick without connecting to database, you can simply 
  go in `manager.py` and comment out the database import on the top:
