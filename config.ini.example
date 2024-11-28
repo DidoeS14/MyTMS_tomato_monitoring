@@ -1,0 +1,29 @@
+[model]
+size_model = weights/tomato_size_e100i416b4/best.pt
+disease_model = weights/tomato_disease_e40i416b4/best.pt
+
+size_confidence = 0.6
+disease_confidence = 0.8
+;0.6 <- to test
+
+size_ripened_count = 10
+
+input = test_inputs
+output = test_results
+
+[email]
+smtp_server = imap.netland.ai
+port = 25
+; 25 not recommended, 587 secure, 465 ssl
+sender = den@netland.ai
+password = !d%%2020
+;REMOVE PASS BEFORE SENDING CODE
+receiver = office@netland.ai
+
+[database]
+
+host = localhost
+port = 3307
+name = tomato
+username = root
+password = 123456
