@@ -4,6 +4,8 @@
 #### Project Overview
 This project utilizes YOLOv11 to detect tomatoes in video files or video streams. It combines state-of-the-art object detection for 2024 with intelligent processing to identify diseased tomatoes, determine tomato maturity, and provide actionable insights for farmers and agricultural specialists. The system is flexible, highly configurable, and designed for deployment on devices such as the Jetson Nano TX, where the model weights were trained using Ultralytics and YOLOv11.
 
+![Showcase](https://github.com/user-attachments/assets/f7e9491c-3204-48ab-a5ed-f023bff192ce)
+
     
 ## Features
 
