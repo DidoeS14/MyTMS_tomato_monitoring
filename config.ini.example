@@ -8,17 +8,26 @@ disease_confidence = 0.8
 
 size_ripened_count = 10
 
-input = test_inputs
+input = test_tomato.mp4
 output = test_results
 
+detection_cooldown = 5
+
+show_stream = True
+save_images = True
+
+[chart]
+output = test_results
+subdir = charts
+save = True
+
 [email]
-smtp_server = imap.netland.ai
+smtp_server = smtp.gmail.com
 port = 25
 ; 25 not recommended, 587 secure, 465 ssl
-sender = den@netland.ai
-password = !d%%2020
-;REMOVE PASS BEFORE SENDING CODE
-receiver = office@netland.ai
+sender = myemail@gmail.com
+password = !somepass%%2020
+receiver = receiver@gmail.com
 
 [database]
 

@@ -129,7 +129,7 @@ class Analyzer:
         illness_detected = self.is_any_count_more_than(0)
 
         if illness_detected and is_ill:
-            notify.for_disease(self.counts)
+            update.for_disease(self.counts)
             return True
         else:
             return False
@@ -214,7 +214,6 @@ class Update:
                                # something like {area: {illness: count}}. Also the name of the picture can be the
                                # name of the area for simplicity
 
-        # TODO: depending on how the source will be this loop will need to be adjusted! When to write daa
 
         green, half, ready = 0, 0, 0
 
@@ -231,8 +230,6 @@ class Update:
                 elif key == 'l_fully_ripened' or key == 'b_fully_ripened':
                     ready += value
 
-            # After processing a dictionary (detection), print the accumulated values
-            # print(f'green: {green}; half: {half}; fully: {ready};')
         writer.add_data(
             Growth,
             date=date,
@@ -241,7 +238,7 @@ class Update:
             half_ripened_count=half,
             fully_ripened_count=ready
         )
+        #IMPORTANT: for now it adds all detected tomatoes, regardless of the confidence!
 
 
-
-notify = Update()
+update = Update()

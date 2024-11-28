@@ -1,7 +1,7 @@
 import cv2
 import time
 from config import tomato_model_config, chart_config
-from manager import Detector, Analyzer, notify
+from manager import Detector, Analyzer, update
 from email_manager import email
 
 
@@ -63,7 +63,7 @@ class VideoProcessor:
             email.send(message)
 
         # Notify the state of the tomatoes
-        notify.for_tomato_state(analyze_sizes.counts)
+        update.for_tomato_state(analyze_sizes.counts)
         analyze_sizes.estimate_next_ready_tomatoes()
 
         return "frame_processed"

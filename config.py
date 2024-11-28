@@ -39,6 +39,8 @@ class TomatoModelConfig:
         self.source: str = config.get('input', 'test_inputs/')
         self.output_folder: str = config.get('output', 'test_results/')
 
+        self.cooldown: int = config.get('detection_cooldown', 10, type='int')
+
         self.show_stream: bool = config.get('show_stream', True, type='bool')
         self.save_images: bool = config.get('save_images', True, type='bool')
 
@@ -76,8 +78,6 @@ class DatabaseConfig:
 
 
 
-
-
 tomato_model_config = TomatoModelConfig()
 chart_config = ChartConfig()
 email_config = EmailConfig()
@@ -87,8 +87,6 @@ if __name__ == '__main__':
 
     print(tomato_model_config.save_images)
     print(tomato_model_config.show_stream)
-
-
-    print(database_config)
+    print(tomato_model_config.cooldown)
 
     print(chart_config.subdir)
