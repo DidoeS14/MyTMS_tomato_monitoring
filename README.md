@@ -1,4 +1,7 @@
 
+![MyTM (1)](https://github.com/user-attachments/assets/ff4bedad-c931-448e-9edd-254b712df7d8)
+
+
 # Tomato Monitoring System 👀 ➡️ 🍅🌿
 
 #### Project Overview 🔎
@@ -15,7 +18,8 @@ and [YOLOv11](https://docs.ultralytics.com/models/yolo11/).
 ### Showcase  📺
 ![Showcase](https://github.com/user-attachments/assets/f7e9491c-3204-48ab-a5ed-f023bff192ce)
 
-    
+
+
 ## 🧰 Features 
 
 1. Disease Detection:
@@ -24,6 +28,7 @@ and [YOLOv11](https://docs.ultralytics.com/models/yolo11/).
 - If a disease is detected with confidence above given value, it:
     - Writes the finding to a database.
     - Sends an alert to user via email.
+ 
 2. Tomato State Analysis:
 
 - Identifies the growth state of tomatoes (e.g., ripe, unripe).
@@ -49,6 +54,7 @@ and [YOLOv11](https://docs.ultralytics.com/models/yolo11/).
 - Datasets used for training are in the  References section at the end of this file.
 
 
+---
 ## 🔧 Installation and Setup 
 
 1. Clone the Repository
@@ -76,6 +82,7 @@ and [YOLOv11](https://docs.ultralytics.com/models/yolo11/).
   py main.py
   ```
 
+---
 ## 🗃️ Database 
 
 You can find a .sql file inside `/database` folder, which will execute the DDL statement
@@ -128,6 +135,7 @@ In case you want to test the system quick without connecting to database or sett
  turn them off from the `config.ini` file. Instructions for how to use the parameters in the config file you can 
 find [here](https://github.com/DidoeS14/tomato_monitoring/blob/main/CONFIG.md).
 
+---
 ## 📔 Usage 
 
 1. Disease Detection:
@@ -146,6 +154,7 @@ find [here](https://github.com/DidoeS14/tomato_monitoring/blob/main/CONFIG.md).
 - Images with detections can be saved and later viewed
 - Charts from the data can be saved and later viewed
 
+---
   # 🔗 References 
   - [Ultralytics](https://github.com/ultralytics/ultralytics)
   - [Tomato Stages Dataset](https://datasetninja.com/laboro-tomato)
