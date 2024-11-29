@@ -1,6 +1,6 @@
 [model]
-size_model = weights/tomato_size_e100i416b4/best.pt
-disease_model = weights/tomato_disease_e40i416b4/best.pt
+size_model = weights/size.pt
+disease_model = weights/disease.pt
 
 size_confidence = 0.6
 disease_confidence = 0.8
@@ -11,22 +11,24 @@ size_ripened_count = 10
 input = test_tomato.mp4
 output = test_results
 
-detection_cooldown = 5
+detection_cooldown = 25
+use_minutes = False
+;if use_minutes is False detection_cooldown will be counted as seconds
 
 show_stream = True
-save_images = True
+save_images = False
 
 [chart]
 output = test_results
 subdir = charts
-save = True
+save = False
 
 [email]
 smtp_server = smtp.gmail.com
 port = 25
 ; 25 not recommended, 587 secure, 465 ssl
-sender = myemail@gmail.com
-password = !somepass%%2020
+sender = user@gmail.com
+password = !password%%2024
 receiver = receiver@gmail.com
 
 [database]
@@ -36,3 +38,11 @@ port = 3307
 name = tomato
 username = root
 password = 123456
+use_database = False
+
+[ftp]
+server = 0.0.0.0
+user = user
+port = 2121
+password = 123456
+use_ftp = False
