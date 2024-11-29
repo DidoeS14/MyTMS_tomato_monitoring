@@ -102,9 +102,9 @@ You can find a .sql file inside `/database` folder, which will execute the DDL s
 #### Tomato stage metrics:
 
 
-mAP: 68.1% ‎ ‎ ‎ ‎ ‎ ‎ ‎ 🟪🟪🟪🟪🟪🟪🟪🟪⬜⬜<br>
-Precision: 71.2% 🟦🟦🟦🟦🟦🟦🟦🟦🟦⬜<br>
-Recall: 63.2% ‎ ‎ ‎ ‎ ‎ 🟧🟧🟧🟧🟧🟧🟧⬜⬜⬜<br>
+mAP: 68.1% ‎ ‎ ‎ ‎ ‎ ‎ ‎ 🟪🟪🟪🟪🟪🟪🟪⬜⬜⬜<br>
+Precision: 71.2% 🟦🟦🟦🟦🟦🟦🟦⬜⬜⬜<br>
+Recall: 63.2% ‎ ‎ ‎ ‎ ‎ 🟧🟧🟧🟧🟧🟧⬜⬜⬜⬜<br>
 <br>
 **Note:** "b" and "l" in the class names stands for the rough physical size of the tomato, `b` standing for _big_
 and `l` standing for _little_.
