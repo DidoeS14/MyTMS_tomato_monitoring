@@ -98,7 +98,9 @@ You can find a .sql file inside `/database` folder, which will execute the DDL s
   - `l_fully_ripened`
 <br>
 <br>
-#### Tomato stage metrics:<br>
+
+#### Tomato stage metrics:
+
 
 mAP: 68.1% ‎ ‎ ‎ ‎ ‎ ‎ ‎ 🟪🟪🟪🟪🟪🟪🟪🟪⬜⬜<br>
 Precision: 71.2% 🟦🟦🟦🟦🟦🟦🟦🟦🟦⬜<br>
