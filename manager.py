@@ -6,6 +6,7 @@ from ultralytics import YOLO
 from chart import draw_chart
 from database import writer, Disease, Growth
 from config import tomato_model_config
+from ftp import ftp_config, ftp_server
 
 
 class Detector:
@@ -105,12 +106,20 @@ class Analyzer:
             # Optionally draw charts and save results
             if identification_name is None:
                 identification_name = 'unknown'
-            if draw_charts:
-                draw_chart(data=detection_counts, image=f'{identification_name}_{name}', save_path=save_path)
-            if save_path is not None:
-                if tomato_model_config.save_images:
-                    print(f'Saved image at {save_path}/{identification_name}_{name}')
-                    result.save(f'{save_path}/{identification_name}_{name}')
+
+            filename = f'{identification_name}_{name}'
+
+            if not ftp_config.use_ftp:
+                if draw_charts:
+                    draw_chart(data=detection_counts, image=filename, save_path=save_path)
+                if save_path is not None:
+                    if tomato_model_config.save_images:
+                        print(f'Saved image at {save_path}/{filename}')
+                        result.save(f'{save_path}/{filename}')
+            else:
+                ftp_server.connect()
+                ftp_server.send_image_data_from_result(result,filename)
+                ftp_server.ftp.quit()
 
     def is_any_confidence_more_than(self, min_threshold):
         return any(float(value) > min_threshold for d in self.confidences for value in d.keys())

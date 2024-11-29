@@ -1,9 +1,18 @@
 
-# Tomato Monitoring System 🎥 🍅🌿
+# Tomato Monitoring System 👀 ➡️ 🍅🌿
 
 #### Project Overview 🔎
-This project utilizes YOLOv11 to detect tomatoes in video files or video streams. It combines state-of-the-art object detection for 2024 with intelligent processing to identify diseased tomatoes, determine tomato maturity, and provide actionable insights for farmers and agricultural specialists. The system is flexible, highly configurable, and designed for deployment on devices such as the [Jetson Nano](https://developer.nvidia.com/embedded/jetson-nano), where the model weights were trained using [Ultralytics](https://docs.ultralytics.com) and [YOLOv11](https://docs.ultralytics.com/models/yolo11/).
+This project utilizes YOLOv11 to detect tomatoes in video files or video streams.
+It combines state-of-the-art object detection for 2024 with intelligent processing
+to identify diseased tomatoes, determine tomato maturity, and provide actionable insights
+for farmers and agricultural specialists. The system is flexible, highly configurable,
+and designed for deployment on devices such as the
+[Jetson Nano](https://developer.nvidia.com/embedded/jetson-nano),
+where the model weights were trained using [Ultralytics](https://github.com/ultralytics/ultralytics)
+and [YOLOv11](https://docs.ultralytics.com/models/yolo11/).
 
+---
+### Showcase  📺
 ![Showcase](https://github.com/user-attachments/assets/f7e9491c-3204-48ab-a5ed-f023bff192ce)
 
     
@@ -60,6 +69,7 @@ This project utilizes YOLOv11 to detect tomatoes in video files or video streams
 
   4. Configure Settings
   - Create the `config.ini` following the example from `config.ini.example` or check the example [here](https://github.com/DidoeS14/tomato_monitoring/blob/main/config.ini.example).
+  - You can find a table with description for each parameter in the config file [here](https://github.com/DidoeS14/tomato_monitoring/blob/main/CONFIG.md)
   - Edit the `config.ini` file to adjust parameters such as confidence thresholds, alert settings, path to weights and other operational configurations.
   5. Run the system:
   ```bash
@@ -68,18 +78,55 @@ This project utilizes YOLOv11 to detect tomatoes in video files or video streams
 
 ## 🗃️ Database 
 
-You can find a .sql file inside `/database` folder, which will execute the DDL statement (query) that will build all MySQL tables with their respective columns and types for you. 
+You can find a .sql file inside `/database` folder, which will execute the DDL statement
+(query) that will build all MySQL tables with their respective columns and types for you.
+<br>
+- Classes in **tomato stage** model:
+  - `b_green`
+  - `b_half_ripened`
+  - `b_fully_ripened`
+  - `l_green`
+  - `l_half_ripened`
+  - `l_fully_ripened`
+<br>
+<br>
+#### Tomato stage metrics:<br>
 
+mAP: 68.1% ‎ ‎ ‎ ‎ ‎ ‎ ‎ 🟪🟪🟪🟪🟪🟪🟪🟪⬜⬜<br>
+Precision: 71.2% 🟦🟦🟦🟦🟦🟦🟦🟦🟦⬜<br>
+Recall: 63.2% ‎ ‎ ‎ ‎ ‎ 🟧🟧🟧🟧🟧🟧🟧⬜⬜⬜<br>
+<br>
+**Note:** "b" and "l" in the class names stands for the rough physical size of the tomato, `b` standing for _big_
+and `l` standing for _little_.
+<br>
+<br>
+- Classes in **tomato disease** model:
+  - `Healthy`
+  - `Bacterial Spot`
+  - `Early Blight`
+  - `Iron Deficiency`
+  - `Late Blight`
+  - `Lead Mold`
+  - `Leaf_Miner`
+  - `Mosaic Virus`
+  - `Septoria`
+  - `Spider Mites`
+  - `Yellow Leaf Curl Virus`
+
+<br>
+
+#### Tomato disease metrics:<br>
+
+
+mAP: 50% ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 🟪🟪🟪🟪🟪⬜⬜⬜⬜⬜<br>
+Precision: 45.6% 🟦🟦🟦🟦🟦⬜⬜⬜⬜⬜<br>
+Recall: 43.4% ‎ ‎ ‎ ‎ ‎ 🟧🟧🟧🟧⬜⬜⬜⬜⬜⬜<br>
 
 ## 💡 Quick Testing 
 
-In case you want to test the system quick without connecting to database, you can simply 
- go in `manager.py` and comment out the database import on the top:
-```python
-  from database import writer, Disease, Growth
-```
-
-You will also need to comment out the two calls of "_**writer**_" in the end of both functions "**_for_disease_**" and "**_for_tomato_state_**" in the **Update** class.
+In case you want to test the system quick without connecting to database or setting an ftp server, you can simply 
+ turn them off from the `config.ini` file. Instructions for how to use the parameters in the config file you can 
+find [here](https://github.com/DidoeS14/tomato_monitoring/blob/main/CONFIG.md).
 
 ## 📔 Usage 
 
@@ -100,7 +147,7 @@ You will also need to comment out the two calls of "_**writer**_" in the end of 
 - Charts from the data can be saved and later viewed
 
   # 🔗 References 
-  - [Ultralytics](https://docs.ultralytics.com)
+  - [Ultralytics](https://github.com/ultralytics/ultralytics)
   - [Tomato Stages Dataset](https://datasetninja.com/laboro-tomato)
   - [Tomato Disease Dataset](https://universe.roboflow.com/universitas-atma-jaya/tomato-leaf-disease-rxcft)
 

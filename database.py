@@ -41,6 +41,9 @@ class Disease(Base):
 
 class Writer:
     def __init__(self):
+        if not database_config.use_database:
+            return
+
         self.engine = create_engine(database_config.URL)
         session = sessionmaker(bind=self.engine)
         self.session = session()
@@ -64,6 +67,8 @@ class Writer:
             table: The ORM class representing the table.
             **kwargs: Key-value pairs representing the data to insert.
         """
+        if not database_config.use_database:
+            return
         try:
             # Dynamically create a new instance of the table with provided data
             record = table(**kwargs)
