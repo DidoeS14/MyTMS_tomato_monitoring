@@ -30,7 +30,7 @@ class Detector:
                     weights_path (str): Path to the YOLO model weights.
         """
         self.weights = weights_path
-        self.model = YOLO(self.weights)
+        self.model = YOLO(self.weights, tomato_model_config.device)
         self.results = None
 
     def run(self, input_: str):

@@ -88,6 +88,7 @@ and [YOLOv11](https://docs.ultralytics.com/models/yolo11/).
 You can find a .sql file inside `/database` folder, which will execute the DDL statement
 (query) that will build all MySQL tables with their respective columns and types for you.
 <br>
+## 👾 Models 
 - Classes in **tomato stage** model:
   - `b_green`
   - `b_half_ripened`

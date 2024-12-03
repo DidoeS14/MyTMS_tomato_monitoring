@@ -2,6 +2,9 @@
 size_model = weights/size.pt
 disease_model = weights/disease.pt
 
+device = cpu
+; can be cuda, 0, 1, etc.
+
 size_confidence = 0.6
 disease_confidence = 0.8
 ;0.6 <- to test

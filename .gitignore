@@ -1,6 +1,10 @@
 
-./test_results
-./venv
-./weights
-.idea
+/test_results
+/venv
+/weights
+/.idea
+
 config.ini
+
+*.pt
+

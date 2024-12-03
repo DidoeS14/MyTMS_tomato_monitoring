@@ -39,6 +39,13 @@ class TomatoModelConfig:
     def __init__(self):
         config = Config('model')
 
+        self.device = config.get('device', 'cpu')
+        try:
+            self.device = int(self.device)
+            print('GPU acceleration is enabled!')
+        except:
+            print(f'GPU acceleration is disabled!')
+
         self.size_tomato_model_path: str = config.get('size_model', 'size.pt')
         self.disease_tomato_model_path: str = config.get('disease_model', 'disease.pt')
 
@@ -85,6 +92,7 @@ class DatabaseConfig:
 
         self.use_database: bool = config.get('use_database', False, type='bool')
         if not self.use_database:
+            print('Database writing is disabled!')
             return
 
         self.username: str = config.get('username', 'root')
@@ -102,6 +110,7 @@ class FTPConfig:
 
         self.use_ftp: bool = config.get('use_ftp', True, type='bool')
         if not self.use_ftp:
+            print('Ftp writing is disabled!')
             return
 
         self.server: str = config.get('server', 'ftp.example.com')
